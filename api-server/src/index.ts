@@ -1,5 +1,5 @@
-import cors from "cors"
-import helmet from "helmet"
+import cors from "cors";
+import helmet from "helmet";
 import express, {Request, Response} from 'express';
 import hotelRoutes from './routes/hotelRoutes';
 
