@@ -1,7 +1,13 @@
+import React from "react";
+import TopNav from "./topNav";
+import NavWithGallery from "./navWithGallery";
+
 export default function Header() {
     return (
       <header className="top-bar">
-        <div className="container-fluid">
+
+        {/* nav  */}
+        {/* <div className="container-fluid">
           <div className="row">
             <div className="col-xl-12">
               <div className="nav text-3">
@@ -16,8 +22,12 @@ export default function Header() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="container">
+        </div> */}
+        <TopNav />
+        {/* <NavWithGallery /> */}
+
+        {/* gallery and nav  */}
+        {/* <div className="container">
           <div className="row margin-top margin-bottom">
             <div className="col-sm-12 user-icon">
               <i className="fa-solid fa-circle-user" />
@@ -43,9 +53,9 @@ export default function Header() {
                   Save
                 </button>
               </div>
-            </div>
+            </div> */}
             {/* Share Modal */}
-            <div className="container">
+            {/* <div className="container">
               <div className="row">
                 <div className="col-xl-12">
                   <div id="shareModal" className="share-modal">
@@ -73,9 +83,9 @@ export default function Header() {
                             <p>9.8/10</p>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                       {/* social share options */}
-                      <div className="share-options">
+                      {/* <div className="share-options">
                         <div className="row">
                           <div className="col-xl-4">
                             <button className="social-btn">
@@ -122,9 +132,9 @@ export default function Header() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* Gallery */}
-          <div className="gallery-image-container">
+          {/* <div className="gallery-image-container">
             <div className="row desktop-gallery">
               <div className="col-xl-6 col-sm-12">
                 <img
@@ -171,9 +181,9 @@ export default function Header() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             {/* mobile Gallery  */}
-            <div className="carousel-container mobile-carousel">
+            {/* <div className="carousel-container mobile-carousel">
               <div className="row">
                 <div className="overlay-actions">
                   <div className="col-sm-6">
@@ -217,9 +227,9 @@ export default function Header() {
                   src="/assets/images/gallery-image5.jpg"
                   alt="Gallery Image 5"
                 />
-              </div>
+              </div> */}
               {/* Optional dots for navigation */}
-              <div className="carousel-dots">
+              {/* <div className="carousel-dots">
                 <span className="dot active" data-index={0} />
                 <span className="dot" data-index={1} />
                 <span className="dot" data-index={2} />
@@ -227,38 +237,38 @@ export default function Header() {
                 <span className="dot" data-index={4} />
               </div>
             </div>
-          </div>
+          </div> */}
           {/* Gallery Modal */}
-          <div className="container flex">
+          {/* <div className="container flex">
             <div id="galleryModal" className="gallery-modal">
               <div className="gallery-content">
                 <div className="row">
-                  <div className="col-xl-12">
+                  <div className="col-xl-12"> */}
                     {/* Close/Dismiss Button */}
-                    <span id="closeModal" className="close">
+                    {/* <span id="closeModal" className="close">
                       <i className="fa-solid fa-xmark" />
                     </span>
                   </div>
-                </div>
+                </div> */}
                 {/* Image Display */}
-                <div className="row">
+                {/* <div className="row">
                   <img
                     id="galleryImage"
                     src="/assets/images/gallery-image1.jpg"
                     alt="Gallery Image"
                   />
-                </div>
+                </div> */}
                 {/* Navigation Buttons Below the Image */}
-                <div className="nav-buttons">
+                {/* <div className="nav-buttons">
                   <button className="prev" id="prevBtn">
                     <i className="fa-solid fa-circle-chevron-left" />
                   </button>
                   <button className="next" id="nextBtn">
                     <i className="fa-solid fa-circle-chevron-right" />
                   </button>
-                </div>
+                </div> */}
                 {/* Caption and Image Count Below the Buttons */}
-                <div className="row">
+                {/* <div className="row">
                   <div className="caption-text">
                     Juneau Vacation Rental | 2BR | 1BA | 1,115 Sq Ft | Stairs
                     Required
@@ -270,7 +280,7 @@ export default function Header() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </header>
     );
   }

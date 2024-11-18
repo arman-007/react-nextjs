@@ -20,14 +20,14 @@ coverage/
 *.tsbuildinfo
 
 # Environment variables
-.env
+# .env
 
 # Temp files
 tmp/
 temp/
 
 # Uploaded files
-uploads/
+# uploads/
 
 # TypeScript cache
 *.tscache
