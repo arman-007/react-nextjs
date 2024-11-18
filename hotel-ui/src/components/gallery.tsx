@@ -9,7 +9,7 @@ export default function Gallery({images} : Images) {
               <div className="col-xl-6 col-sm-12">
                 <img
                   className="image-fluid"
-                  src={`http://localhost:3000/${images[0]}`}
+                  src={`http://localhost:5000${images[0]}`}
                   alt="placeholder"
                 />
               </div>
@@ -18,28 +18,28 @@ export default function Gallery({images} : Images) {
                   <div className="col-xl-6">
                     <img
                       className="image-fluid"
-                      src={`http://localhost:3000/${images[0]}`}
+                      src={`http://localhost:5000${images[0]}`}
                       alt="placeholder"
                     />
                   </div>
                   <div className="col-xl-6">
                     <img
                       className="image-fluid"
-                      src={`http://localhost:3000/${images[0]}`}
+                      src={`http://localhost:5000${images[0]}`}
                       alt="placeholder"
                     />
                   </div>
                   <div className="col-xl-6">
                     <img
                       className="image-fluid"
-                      src={`http://localhost:3000/${images[0]}`}
+                      src={`http://localhost:5000${images[0]}`}
                       alt="placeholder"
                     />
                   </div>
                   <div className="col-xl-6">
                     <img
                       className="image-fluid"
-                      src={`http://localhost:3000/${images[0]}`}
+                      src={`http://localhost:5000${images[0]}`}
                       alt="placeholder"
                     />
                     <div className="view-all-button-wrapper">
@@ -74,27 +74,27 @@ export default function Gallery({images} : Images) {
               <div className="carousel">
                 <img
                   className="carousel-image"
-                  src={`http://localhost:3000/${images[0]}`}
+                  src={`http://localhost:5000${images[0]}`}
                   alt="Gallery Image 1"
                 />
                 <img
                   className="carousel-image"
-                  src={`http://localhost:3000/${images[0]}`}
+                  src={`http://localhost:5000${images[0]}`}
                   alt="Gallery Image 2"
                 />
                 <img
                   className="carousel-image"
-                  src={`http://localhost:3000/${images[0]}`}
+                  src={`http://localhost:5000${images[0]}`}
                   alt="Gallery Image 3"
                 />
                 <img
                   className="carousel-image"
-                  src={`http://localhost:3000/${images[0]}`}
+                  src={`http://localhost:5000${images[0]}`}
                   alt="Gallery Image 4"
                 />
                 <img
                   className="carousel-image"
-                  src={`http://localhost:3000/${images[0]}`}
+                  src={`http://localhost:5000${images[0]}`}
                   alt="Gallery Image 5"
                 />
               </div>

@@ -14,6 +14,7 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
 }));
+app.use('/uploads', express.static('uploads'));
 
 app.use('/', hotelRoutes);
 

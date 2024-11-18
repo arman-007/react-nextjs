@@ -64,7 +64,7 @@ const HotelPage = () => {
   if (!hotel) {
     return <div>Hotel not found</div>;
   }
-
+  console.log(hotel);
   return (
     <div>
       <NavWithGallery images= {hotel.images}/>

@@ -327,6 +327,13 @@ h1 {
   border-bottom: 1px solid #e0e1ed;
 }
 
+.show-class{
+  display: block;
+}
+.hide-class{
+  display: none;
+}
+
 .nav {
   display: flex;
   justify-content: flex-end;
@@ -729,7 +736,7 @@ h1 {
 
 /* Modal Container */
 .modal {
-  display: none;
+  /* display: none; */
   position: fixed;
   z-index: 100;
   /* Ensure it's above other elements */
@@ -961,7 +968,7 @@ form input {
 }
 /* Styles for the Share Modal */
 .share-modal {
-  display: none;
+  /* display: none; */
   /* Hidden by default */
   position: fixed;
   z-index: 1000;

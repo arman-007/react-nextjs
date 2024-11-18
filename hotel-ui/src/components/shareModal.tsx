@@ -7,9 +7,8 @@ interface ShareModalProps {
 
 const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
-
   return (
-    <div className="share-modal">
+    <div className={`share-modal ${isOpen ? 'show-class' : 'hide-class'}`}>
       <div className="share-modal-content">
         <span onClick={onClose} className="close regular-x-close">
           <i className="fa-solid fa-xmark" />
