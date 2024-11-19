@@ -1,8 +1,11 @@
+import PopularAmenities from "./PopularAmenities";
+
 interface PropertyDescriptionProps {
   description: string;
+  amenities: string[];
 }
 
-export default function PropertyDescription({ description }: PropertyDescriptionProps) {
+export default function PropertyDescription({ description, amenities }: PropertyDescriptionProps) {
   return (
     <section>
       <div className="container">
@@ -113,40 +116,8 @@ export default function PropertyDescription({ description }: PropertyDescription
               <div className="col-xl-4 col-sm-12">
                 <p className="text-1">Amenities</p>
               </div>
-              <div className="col-xl-4 text-3 col-sm-6">
-                <div className="amenities-info">
-                  <div className="info-item">
-                    <i className="fa-solid fa-kitchen-set" />
-                    <span className="info-text">Kitchen</span>
-                  </div>
-                  <div className="info-item">
-                    <i className="fa-solid fa-cash-register" />
-                    <span className="info-text">Dryer</span>
-                  </div>
-                  <div className="info-item">
-                    <i className="fa-solid fa-soap" />
-                    <span className="info-text">Washer</span>
-                  </div>
-                </div>
-                <a className="no-link bold" href="#">
-                  See all 34 amenities →
-                </a>
-              </div>
-              <div className="col-xl-4 text-3 col-sm-6">
-                <div className="amenities-info">
-                  <div className="info-item">
-                    <i className="fa-solid fa-water" />
-                    <span className="info-text">Ocean View</span>
-                  </div>
-                  <div className="info-item">
-                    <i className="fa-solid fa-campground" />
-                    <span className="info-text">Outer Space</span>
-                  </div>
-                  <div className="info-item">
-                    <i className="fa-solid fa-square-parking" />
-                    <span className="info-text">Parking Available</span>
-                  </div>
-                </div>
+              <div className="col-xl-8 text-3 col-sm-6">
+                <PopularAmenities amenities={amenities}/>
               </div>
             </div>
           </div>

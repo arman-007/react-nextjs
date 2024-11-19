@@ -10,7 +10,7 @@ import HotelInfo from "@/components/hotelInfo";
 import PropertyDescription from "@/components/propertyDescription";
 import FaqAI from "@/components/faqAI";
 import HouseRules from "@/components/houseRules";
-import TravelerBox from "@/components/travelerBox";
+import TravelerBox from "@/components/TravelerModal";
 
 // Define a type for Hotel data
 interface Hotel {
@@ -71,7 +71,7 @@ const HotelPage = () => {
       <main>
         <DetailNavBar />
         <HotelInfo hotel={hotel} />
-        <PropertyDescription description={hotel.description} />
+        <PropertyDescription description={hotel.description} amenities={hotel.amenities}/>
         <FaqAI />
         <HouseRules rules={hotel.amenities} />
         {/* <TravelerBox /> */}

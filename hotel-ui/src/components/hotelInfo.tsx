@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
+import TravelerModal from "./TravelerModal";
+import PopularAmenities from "./PopularAmenities";
 
 interface HotelInfoProps {
   hotel: {
@@ -21,9 +23,13 @@ interface HotelInfoProps {
   };
 }
 
-
-
 export default function HotelInfo({ hotel }: HotelInfoProps) {
+  const [showTravelerModal, setShowTravelerModal] = useState(false);
+
+  const handleTravelerModal = () => {
+    setShowTravelerModal((prev) => !prev);
+  };
+
   return (
     <div className="container">
       <div className="row">
@@ -31,7 +37,7 @@ export default function HotelInfo({ hotel }: HotelInfoProps) {
           <p className="text-3">Entire home</p>
           <h1 className="bold">
             {/* Juneau Vacation Home: Stunning View + Beach Access */}
-            {hotel.title} 
+            {hotel.title}
           </h1>
           <div className="row rating">
             <div className="col-xl-4 no-padding col-sm-12">
@@ -49,7 +55,9 @@ export default function HotelInfo({ hotel }: HotelInfoProps) {
               <div className="property-info">
                 <div className="info-item">
                   <i className="fa-solid fa-bed" />
-                  <span className="info-text text-3">{hotel.bedroomCount} bedrooms</span>
+                  <span className="info-text text-3">
+                    {hotel.bedroomCount} bedrooms
+                  </span>
                 </div>
                 <div className="info-item">
                   <i className="fa-solid fa-users-line" />
@@ -61,7 +69,9 @@ export default function HotelInfo({ hotel }: HotelInfoProps) {
               <div className="property-info">
                 <div className="info-item">
                   <i className="fa-solid fa-users-line" />
-                  <span className="info-text">1 bathroom</span>
+                  <span className="info-text">
+                    {hotel.bathroomCount} bathroom
+                  </span>
                 </div>
                 <div className="info-item">
                   <i className="fa-solid fa-maximize" />
@@ -76,43 +86,7 @@ export default function HotelInfo({ hotel }: HotelInfoProps) {
               <h3 className="text-2">Popular amenities</h3>
             </div>
           </div>
-          <div className="row text-3">
-            <div className="col-xl-6">
-              <div className="amenities">
-                <div className="amenity-item">
-                  <i className="fa-solid fa-fire" />
-                  <span>Barbecue grill</span>
-                </div>
-                <div className="amenity-item">
-                  <i className="fa-solid fa-campground" />
-                  <span>Outdoor Space</span>
-                </div>
-                <div className="amenity-item">
-                  <i className="fa-solid fa-kitchen-set" />
-                  <span>Kitchen</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-6">
-              <div className="amenities">
-                <div className="amenity-item">
-                  <i className="fa-solid fa-soap" />
-                  <span>Washer</span>
-                </div>
-                <div className="amenity-item">
-                  <i className="fa-solid fa-square-parking" />
-                  <span>Parking available</span>
-                </div>
-                <div className="amenity-item">
-                  <i className="fa-solid fa-cash-register" />
-                  <span>Dryer</span>
-                </div>
-              </div>
-            </div>
-            <a className="no-link" href="#">
-              See all property amenities →
-            </a>
-          </div>
+          <PopularAmenities amenities={hotel.amenities} />
           {/* location and map  */}
           <div className="row">
             <div className="col-xl-12 no-padding">
@@ -310,43 +284,10 @@ export default function HotelInfo({ hotel }: HotelInfoProps) {
                   2 travelers
                 </div>
                 {/* Traveler Selection Box (Hidden initially) */}
-                <div id="travelerModal" className="traveler-modal">
-                  <div className="traveler-options">
-                    <div className="option">
-                      <p>Adults</p>
-                      <div className="controls">
-                        <button className="decrement" id="decrementAdults">
-                          <i className="fa-solid fa-minus" />
-                        </button>
-                        <span id="adultCount">2</span>
-                        <button className="increment" id="incrementAdults">
-                          <i className="fa-solid fa-plus" />
-                        </button>
-                      </div>
-                    </div>
-                    <div className="option">
-                      <p>
-                        Children <span>(Ages 0 to 17)</span>
-                      </p>
-                      <div className="controls">
-                        <button
-                          className="decrement"
-                          id="decrementChildren"
-                          // disabled=""
-                        >
-                          <i className="fa-solid fa-minus" />
-                        </button>
-                        <span id="childCount">0</span>
-                        <button className="increment" id="incrementChildren">
-                          <i className="fa-solid fa-plus" />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <button id="saveTravelers" className="save-btn">
-                    Save
-                  </button>
-                </div>
+                <TravelerModal
+                  isOpen={showTravelerModal}
+                  onClose={handleTravelerModal}
+                />
               </div>
               <div className="flex">
                 <div className="col-xl-8">

@@ -1,7 +1,8 @@
 import React from "react";
-import Gallery from "./gallery";
-import GalleryModal from "./galleryModal";
-import ShareModal from "./shareModal";
+import Gallery from "./Gallery";
+import GalleryModal from "./GalleryModal";
+import ShareModal from "./ShareModal";
+import SaveModal from "./SaveModal";
 
 interface ImagesProp {
   images: string[];
@@ -22,7 +23,7 @@ export default function NavWithGallery({images} : ImagesProp) {
               <i className="fa-solid fa-circle-user" />
             </div>
             <div className="col-xl-6 back-link">
-              <a className="no-link text-3" href="#">
+              <a className="no-link text-3" href="/">
                 <i className="fa-solid fa-arrow-left" />
                 See all properties
               </a>
@@ -35,12 +36,8 @@ export default function NavWithGallery({images} : ImagesProp) {
                   </span>
                   Share
                 </button>
-                <button id="saveBtn" className="pill-btn">
-                  <span className="icon margin-right">
-                    <i id="heartIcon" className="fa-regular fa-heart" />
-                  </span>
-                  Save
-                </button>
+                
+                <SaveModal />
               </div>
             </div>
             {/* Share Modal */}

@@ -1,12 +1,15 @@
-export default function travelerBox() {
+import React from 'react';
+
+interface TravelerModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+
+const TravelerModal: React.FC<TravelerModalProps> = ({ isOpen, onClose }) => {
+  if (!isOpen) return null;
   return (
-    <div className="col-xl-12 card travelers">
-      <label>Travelers</label>
-      <div id="travelerBox" className="date-box">
-        2 travelers
-      </div>
-      {/* Traveler Selection Box (Hidden initially) */}
-      <div id="travelerModal" className="traveler-modal">
+      <div id="travelerModal" className={`traveler-modal ${isOpen ? 'show-class' : 'hide-class'}`}>
         <div className="traveler-options">
           <div className="option">
             <p>Adults</p>
@@ -25,7 +28,7 @@ export default function travelerBox() {
               Children <span>(Ages 0 to 17)</span>
             </p>
             <div className="controls">
-              <button className="decrement" id="decrementChildren" disabled="">
+              <button className="decrement" id="decrementChildren" disabled>
                 <i className="fa-solid fa-minus" />
               </button>
               <span id="childCount">0</span>
@@ -39,6 +42,7 @@ export default function travelerBox() {
           Save
         </button>
       </div>
-    </div>
   );
-}
+};
+
+export default TravelerModal;

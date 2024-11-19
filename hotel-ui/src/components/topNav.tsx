@@ -46,9 +46,9 @@ export default function TopNav() {
       <div className="row">
         <div className="col-xl-12">
           <div className="nav text-3">
-            <span onClick={openRegionModal} id="regionLink">
+            <a onClick={openRegionModal} id="regionLink">
               <i className="fa-solid fa-globe" /> {selectedRegion}
-            </span>
+            </a>
             <a href="#">Trip Boards</a>
             <a href="#">List your property</a>
             <a href="#">Help</a>

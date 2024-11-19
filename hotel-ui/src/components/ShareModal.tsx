@@ -7,11 +7,24 @@ interface ShareModalProps {
 
 const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
+
+  const handleCopyLink = () => {
+    const link = window.location.href; // Get current page URL
+    navigator.clipboard
+      .writeText(link)
+      .then(() => {
+        alert("Link copied to clipboard!");
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+      });
+  };
+
   return (
     <div className={`share-modal ${isOpen ? 'show-class' : 'hide-class'}`}>
       <div className="share-modal-content">
         <span onClick={onClose} className="close regular-x-close">
-          <i className="fa-solid fa-xmark" />
+          <i className="fa-solid fa-times" />
         </span>
         <h3>Share</h3>
         <div className="container">
@@ -67,7 +80,7 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose }) => {
               </button>
             </div>
             <div className="col-xl-4">
-              <button id="copyLinkBtn" className="social-btn">
+              <button id="copyLinkBtn" className="social-btn" onClick={() => { handleCopyLink(); onClose(); }}>
                 <i className="fa-solid fa-clipboard-list" />
                 <p className="text-4 bold">Copy link</p>
               </button>

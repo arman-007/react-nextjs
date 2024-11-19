@@ -1,9 +1,14 @@
 {
-
-  "id": "1731385763060",
-  "slug": "sunset-villa-12",
-  "images": [],
-  "title": "Sunset Villa 12",
+  "id": "1732001925278",
+  "slug": "test-data-for-image-3",
+  "images": [
+    "uploads/images/images-1732001925270-463255531.png",
+    "uploads/images/images-1732001925270-423441663.png",
+    "uploads/images/images-1732001925270-208306454.png",
+    "uploads/images/images-1732001925273-315351133.png",
+    "uploads/images/images-1732001925275-959741302.png"
+  ],
+  "title": "Test image - 3 ",
   "description": "A beautiful villa with an ocean view.",
   "guestCount": 4,
   "bedroomCount": 2,
@@ -18,7 +23,7 @@
   },
   "address": "123 Ocean Ave, Beach City",
   "latitude": 36.7783,
-  "longitude": -119.4179,
+  "longitude": -119.4169,
   "rooms": [
     {
       "hotel_slug": "sunset-villa",
