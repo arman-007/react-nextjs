@@ -1,0 +1,35 @@
+{
+  "id": "1732022912919",
+  "slug": "test-data-for-amenities-1",
+  "images": [
+    "/uploads/images/image-1732022912469-403498765.webp",
+    "/uploads/images/image-1732022912552-860262796.webp",
+    "/uploads/images/image-1732022912624-326419224.webp",
+    "/uploads/images/image-1732022912744-858778635.webp",
+    "/uploads/images/image-1732022912856-375676979.webp"
+  ],
+  "title": "Test Data for amenities - 1",
+  "description": "A beautiful villa with an ocean view.",
+  "guestCount": 4,
+  "bedroomCount": 2,
+  "bathroomCount": 2,
+  "amenities": [
+    "pool",
+    " wifi"
+  ],
+  "hostInfo": {
+    "name": "John Doe"
+  },
+  "address": "123 Ocean Ave, Beach City",
+  "latitude": 36.7783,
+  "longitude": -119.4169,
+  "rooms": [
+    {
+      "hotel_slug": "sunset-villa",
+      "room_slug": "suite-room",
+      "room_image": [],
+      "room_title": "Suite Room",
+      "bedroom_count": 1
+    }
+  ]
+}
