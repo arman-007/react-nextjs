@@ -15,7 +15,7 @@ export default function GalleryModal() {
                 <div className="row">
                   <img
                     id="galleryImage"
-                    src="/assets/images/gallery-image1.jpg"
+                    src="https://placehold.co/600x400"
                     alt="Gallery Image"
                   />
                 </div>

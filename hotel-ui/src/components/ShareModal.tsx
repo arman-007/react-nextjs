@@ -31,7 +31,7 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose }) => {
           <div className="row property-info">
             <div className="col-xl-4">
               <img
-                src="/assets/images/gallery-image1.jpg"
+                src="https://placehold.co/600x400"
                 alt="Property Image"
               />
             </div>

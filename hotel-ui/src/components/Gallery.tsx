@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 interface Images {
@@ -13,29 +14,13 @@ export default function Gallery({ images }: Images) {
     <div className="gallery-image-container">
       <div className="row desktop-gallery">
         <div className="col-xl-6 col-sm-12">
-          <img
-            className="image-fluid"
-            src={`http://localhost:5000${images[0]}`}
-            alt="Gallery Image 1"
-            onError={(e) => {
-              console.error('Error loading image:', e.currentTarget.src);
-              e.currentTarget.src = 'https://placehold.co/600x400'; // Fallback image
-            }}
-          />
+          <Image className="image-fluid" src={`http://localhost:5000${images[0]}`} alt="Gallery Image 1" layout="responsive" width={600} height={400} />
         </div>
         <div className="col-xl-6 col-sm-12">
           <div className="row">
             {images.slice(1, 5).map((image, index) => (
               <div className="col-xl-6" key={index}>
-                <img
-                  className="image-fluid"
-                  src={`http://localhost:5000${image}`}
-                  alt={`Gallery Image ${index + 1}`}
-                  onError={(e) => {
-                    console.error('Error loading image:', e.currentTarget.src);
-                    e.currentTarget.src = 'https://placehold.co/600x400'; // Fallback image
-                  }}
-                />
+                <Image className="image-fluid" src={`http://localhost:5000${image}`} alt={`Gallery Image ${index + 1}`} width={300} height={200} />
               </div>
             ))}
             <div className="view-all-button-wrapper">
@@ -68,16 +53,14 @@ export default function Gallery({ images }: Images) {
         </div>
         <div className="carousel">
           {images.map((image, index) => (
-            <img
-              key={index}
-              className="carousel-image"
-              src={`http://localhost:5000${image}`}
-              alt={`Gallery Image ${index + 1}`}
-              onError={(e) => {
-                console.error('Error loading image:', e.currentTarget.src);
-                e.currentTarget.src = 'https://placehold.co/600x400'; // Fallback image
-              }}
-            />
+            <Image
+            key={index}
+            className="carousel-image"
+            src={`http://localhost:5000${image}`}
+            alt={`Gallery Image ${index + 1}`}
+            width={600} // Set appropriate width
+            height={400} // Set appropriate height
+          />
           ))}
         </div>
         {/* Optional dots for navigation */}

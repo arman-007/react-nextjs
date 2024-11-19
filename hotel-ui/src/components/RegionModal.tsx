@@ -49,23 +49,23 @@ const RegionModal: React.FC<RegionModalProps> = ({
     onClose();
   };
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
-        onClose();
-      }
-    };
+  // useEffect(() => {
+  //   const handleClickOutside = (event: MouseEvent) => {
+  //     if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+  //       onClose();
+  //     }
+  //   };
 
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside);
-    }
+  //   if (isOpen) {
+  //     document.addEventListener('mousedown', handleClickOutside);
+  //   } else {
+  //     document.removeEventListener('mousedown', handleClickOutside);
+  //   }
 
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isOpen, onClose]);
+  //   return () => {
+  //     document.removeEventListener('mousedown', handleClickOutside);
+  //   };
+  // }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -75,9 +75,10 @@ const RegionModal: React.FC<RegionModalProps> = ({
       className={`modal ${isOpen ? "show-class" : "hide-class"}`}
     >
       <div className="modal-content">
-        <span onClick={onClose} className="close-btn">
+        <button onClick={onClose} className="close-btn" aria-label="close">
           <i className="fa-solid fa-times" />
-        </span>
+        </button>
+
         <h3 className="text-2">Display Settings</h3>
         <form>
           <label htmlFor="region">Region</label>

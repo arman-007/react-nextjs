@@ -8,7 +8,7 @@ import NavWithGallery from "@/components/navWithGallery";
 import DetailNavBar from "@/components/detailNavBar";
 import HotelInfo from "@/components/hotelInfo";
 import PropertyDescription from "@/components/propertyDescription";
-import FaqAI from "@/components/faqAI";
+import FaqAI from "@/components/FaqAI";
 import HouseRules from "@/components/houseRules";
 import TravelerBox from "@/components/TravelerModal";
 
