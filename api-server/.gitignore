@@ -27,7 +27,7 @@ tmp/
 temp/
 
 # Uploaded files
-# uploads/
+uploads/
 
 # TypeScript cache
 *.tscache
