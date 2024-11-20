@@ -1,3 +1,4 @@
+import React from "react";
 import PopularAmenities from "./PopularAmenities";
 
 interface PropertyDescriptionProps {
@@ -16,14 +17,7 @@ export default function PropertyDescription({ description, amenities }: Property
               Juneau Vacation Home: Stunning View + Beach Access
             </p>
             <p className="text-normal">
-              Escape to the mountains and experience the great outdoors at this
-              lovely Juneau vacation rental! Perched on the shore of Lena Cove,
-              this 2-bedroom, I-bath home is the perfect getaway for those
-              looking to enjoy a relaxing retreat surrounded by nature. Spend
-              your day fishing for King Salmon, exploring Lena Beach and the
-              rocky coastline, or hiking the nearby trails. After your outdoor
-              adventure, kick back on the private deck and admire the
-              breathtaking panoramic views!
+              Escape to the mountains and experience the great outdoors at this lovely Juneau vacation rental! Perched on the shore of Lena Cove,this 2-bedroom, I-bath home is the perfect getaway for thoselooking to enjoy a relaxing retreat surrounded by nature. Spendyour day fishing for King Salmon, exploring Lena Beach and therocky coastline, or hiking the nearby trails. After your outdooradventure, kick back on the private deck and admire thebreathtaking panoramic views!
             </p>
             <p className="text-3 margin-y">--THE PROPERTY--</p>
             <p className="normal-text">

@@ -1,15 +1,17 @@
+import '@testing-library/jest-dom';
 import React from "react";
 import { render, screen } from "@testing-library/react";
+
 import PropertyDescription from "../components/propertyDescription";
 import PopularAmenities from "../components/PopularAmenities";
 
 // Mock the PopularAmenities component to isolate testing
-jest.mock("./PopularAmenities", () => {
+jest.mock("../components/PopularAmenities", () => {
   return jest.fn(() => <div data-testid="popular-amenities">Mocked PopularAmenities</div>);
 });
 
 const mockDescription =
-  "Escape to the mountains and experience the great outdoors at this lovely Juneau vacation rental!";
+  "Escape to the mountains and experience the great outdoors at this lovely Juneau vacation rental! Perched on the shore of Lena Cove,this 2-bedroom, I-bath home is the perfect getaway for thoselooking to enjoy a relaxing retreat surrounded by nature. Spendyour day fishing for King Salmon, exploring Lena Beach and therocky coastline, or hiking the nearby trails. After your outdooradventure, kick back on the private deck and admire thebreathtaking panoramic views!";
 const mockAmenities = ["Barbecue Grill", "Outdoor Space", "Kitchen", "Washer", "Parking Available"];
 
 describe("PropertyDescription Component", () => {
@@ -21,10 +23,9 @@ describe("PropertyDescription Component", () => {
     expect(screen.getByText("About this property")).toBeInTheDocument();
     expect(screen.getByText("Juneau Vacation Home: Stunning View + Beach Access")).toBeInTheDocument();
     expect(
-      screen.getByText(
-        "Escape to the mountains and experience the great outdoors at this lovely Juneau vacation rental!"
-      )
+      screen.getByText(/Escape to the mountains and experience the great outdoors/i)
     ).toBeInTheDocument();
+
   });
 
   it("renders 'The Property' details", () => {

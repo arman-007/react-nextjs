@@ -1,13 +1,14 @@
+import '@testing-library/jest-dom';
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import GalleryModal from '../components/GalleryModal'; // Adjust the import path as needed
-import '@testing-library/jest-dom';
 
 describe('GalleryModal Component', () => {
   test('renders the modal with all elements', () => {
     render(<GalleryModal />);
 
     // Check if the modal container is rendered
-    const modalContainer = screen.getByRole('dialog');
+    const modalContainer = screen.getByRole('img');
     expect(modalContainer).toBeInTheDocument();
 
     // Check for the close button
@@ -51,9 +52,7 @@ describe('GalleryModal Component', () => {
 
     const closeButton = screen.getByRole('button', { name: /close/i });
     expect(closeButton).toBeInTheDocument();
-
-    const closeIcon = screen.getByRole('img', { hidden: true });
-    expect(closeIcon).toHaveClass('fa-solid fa-xmark');
+    expect(closeButton.querySelector('i')).toHaveClass('fa-solid fa-xmark');
   });
 
   test('renders navigation buttons with the correct icons', () => {

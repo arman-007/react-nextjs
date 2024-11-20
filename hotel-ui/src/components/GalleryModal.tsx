@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function GalleryModal() {
     return(
         <div className="container flex">
@@ -6,9 +8,9 @@ export default function GalleryModal() {
                 <div className="row">
                   <div className="col-xl-12">
                     {/* Close/Dismiss Button */}
-                    <span id="closeModal" className="close">
+                    <button id="closeModal" className="close" aria-label="Close Modal">
                       <i className="fa-solid fa-xmark" />
-                    </span>
+                    </button>
                   </div>
                 </div>
                 {/* Image Display */}
@@ -21,10 +23,10 @@ export default function GalleryModal() {
                 </div>
                 {/* Navigation Buttons Below the Image */}
                 <div className="nav-buttons">
-                  <button className="prev" id="prevBtn">
+                  <button className="prev" id="prevBtn" aria-label="Previous Image">
                     <i className="fa-solid fa-circle-chevron-left" />
                   </button>
-                  <button className="next" id="nextBtn">
+                  <button className="next" id="nextBtn" aria-label="Next Image">
                     <i className="fa-solid fa-circle-chevron-right" />
                   </button>
                 </div>

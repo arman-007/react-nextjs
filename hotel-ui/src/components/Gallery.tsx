@@ -14,7 +14,7 @@ export default function Gallery({ images }: Images) {
     <div className="gallery-image-container">
       <div className="row desktop-gallery">
         <div className="col-xl-6 col-sm-12">
-          <Image className="image-fluid" src={`http://localhost:5000${images[0]}`} alt="Gallery Image 1" layout="responsive" width={600} height={400} />
+          <Image className="image-fluid" src={`http://localhost:5000${images[0]}`} alt="Desktop Gallery Image 0" layout="responsive" width={600} height={400} />
         </div>
         <div className="col-xl-6 col-sm-12">
           <div className="row">
@@ -42,10 +42,10 @@ export default function Gallery({ images }: Images) {
               </a>
             </div>
             <div className="col-sm-6 flex">
-              <button id="shareBtn" className="share-btn pill-btn">
+              <button id="shareBtn" className="share-btn pill-btn" aria-label="Share">
                 <i className="fa-solid fa-arrow-up-from-bracket" />
               </button>
-              <button id="saveBtn" className="pill-btn">
+              <button id="saveBtn" className="pill-btn" aria-label="Save">
                 <i id="heartIcon" className="fa-regular fa-heart" />
               </button>
             </div>
@@ -57,7 +57,7 @@ export default function Gallery({ images }: Images) {
             key={index}
             className="carousel-image"
             src={`http://localhost:5000${image}`}
-            alt={`Gallery Image ${index + 1}`}
+            alt={`Carousel Gallery Image ${index + 1}`}
             width={600} // Set appropriate width
             height={400} // Set appropriate height
           />

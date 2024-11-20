@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 import TravelerModal from "./TravelerModal";
 import PopularAmenities from "./PopularAmenities";
+
 
 interface HotelInfoProps {
   hotel: {
