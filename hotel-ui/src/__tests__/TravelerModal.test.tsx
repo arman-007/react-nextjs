@@ -1,81 +1,49 @@
-// import React from "react";
-// import { render, screen, fireEvent } from "@testing-library/react";
-// import TravelerModal from "../components/TravelerModal";
+import React from 'react';
+import '@testing-library/jest-dom';
+import { render, screen, fireEvent } from '@testing-library/react';
+// import '@testing-library/jest-dom/extend-expect';
+import TravelerModal from '../components/TravelerModal';
 
-// describe("TravelerModal Component", () => {
-//   it("renders when modal is open", () => {
-//     render(<TravelerModal isOpen={true} onClose={() => {}} />);
+describe('TravelerModal', () => {
+    test('renders correctly when isOpen is true', () => {
+        render(<TravelerModal isOpen={true} />);
+        expect(screen.getByText('Adults')).toBeInTheDocument();
+        expect(screen.getByText('Children')).toBeInTheDocument();
+        expect(screen.getByText('Save')).toBeInTheDocument();
+    });
 
-//     // Check if the modal is rendered
-//     expect(screen.getByText(/Adults/i)).toBeInTheDocument();
-//     expect(screen.getByText(/Children/i)).toBeInTheDocument();
-//     expect(screen.getByText(/Save/i)).toBeInTheDocument();
-//   });
+    test('does not render when isOpen is false', () => {
+        render(<TravelerModal isOpen={false} />);
+        expect(screen.queryByText('Adults')).not.toBeInTheDocument();
+        expect(screen.queryByText('Children')).not.toBeInTheDocument();
+        expect(screen.queryByText('Save')).not.toBeInTheDocument();
+    });
 
-//   it("does not render when modal is closed", () => {
-//     render(<TravelerModal isOpen={false} onClose={() => {}} />);
+    // test('increments and decrements adult count', () => {
+    //     render(<TravelerModal isOpen={true} />);
+    //     const incrementButton = screen.getByRole('button', { name: /incrementAdults/i });
+    //     const decrementButton = screen.getByRole('button', { name: /decrementAdults/i });
+    //     const adultCount = screen.getByText('2');
 
-//     // Check if the modal is not rendered
-//     expect(screen.queryByText(/Adults/i)).not.toBeInTheDocument();
-//     expect(screen.queryByText(/Children/i)).not.toBeInTheDocument();
-//   });
+    //     fireEvent.click(incrementButton);
+    //     expect(adultCount).toHaveTextContent('3');
 
-//   it("increments the adult count correctly", () => {
-//     render(<TravelerModal isOpen={true} onClose={() => {}} />);
+    //     fireEvent.click(decrementButton);
+    //     expect(adultCount).toHaveTextContent('2');
+    // });
 
-//     // Check initial adult count
-//     expect(screen.getByText("2")).toBeInTheDocument();
+    // test('increments child count', () => {
+    //     render(<TravelerModal isOpen={true} />);
+    //     const incrementButton = screen.getByRole('button', { name: /incrementChildren/i });
+    //     const childCount = screen.getByText('0');
 
-//     const incrementButton = screen.getByLabelText(/increment adults/i);
-//     fireEvent.click(incrementButton);
+    //     fireEvent.click(incrementButton);
+    //     expect(childCount).toHaveTextContent('1');
+    // });
 
-//     // Check if the adult count increments
-//     expect(screen.getByText("3")).toBeInTheDocument();
-//   });
-
-//   it("decrements the adult count correctly", () => {
-//     render(<TravelerModal isOpen={true} onClose={() => {}} />);
-
-//     // Check initial adult count
-//     expect(screen.getByText("2")).toBeInTheDocument();
-
-//     const decrementButton = screen.getByLabelText(/decrement adults/i);
-//     fireEvent.click(decrementButton);
-
-//     // Check if the adult count decrements
-//     expect(screen.getByText("1")).toBeInTheDocument();
-//   });
-
-//   it("does not allow decrementing the children count", () => {
-//     render(<TravelerModal isOpen={true} onClose={() => {}} />);
-
-//     const decrementButton = screen.getByLabelText(/decrement children/i);
-
-//     // Check if the decrement button is disabled
-//     expect(decrementButton).toBeDisabled();
-//   });
-
-//   it("increments the children count correctly", () => {
-//     render(<TravelerModal isOpen={true} onClose={() => {}} />);
-
-//     // Check initial children count
-//     expect(screen.getByText("0")).toBeInTheDocument();
-
-//     const incrementButton = screen.getByLabelText(/increment children/i);
-//     fireEvent.click(incrementButton);
-
-//     // Check if the children count increments
-//     expect(screen.getByText("1")).toBeInTheDocument();
-//   });
-
-//   it("calls onClose when Save button is clicked", () => {
-//     const handleClose = jest.fn();
-//     render(<TravelerModal isOpen={true} onClose={handleClose} />);
-
-//     const saveButton = screen.getByText(/Save/i);
-//     fireEvent.click(saveButton);
-
-//     // Ensure onClose is called when Save button is clicked
-//     expect(handleClose).toHaveBeenCalledTimes(1);
-//   });
-// });
+    test('save button is present', () => {
+        render(<TravelerModal isOpen={true} />);
+        const saveButton = screen.getByRole('button', { name: /save/i });
+        expect(saveButton).toBeInTheDocument();
+    });
+});

@@ -18,7 +18,7 @@ const SaveModal: React.FC = () => {
   return (
     <button id="saveBtn" className="pill-btn" onClick={handleSaveClick}>
       <span className="icon margin-right">
-        <i id="heartIcon" className={`fa-heart ${isHeartSaved ? 'fa-solid' : 'fa-regular'}`}></i>
+        <i id="heartIcon" className={`fa-heart ${isHeartSaved ? 'fa-solid' : 'fa-regular'}`} data-testid="heartIcon"></i>
       </span>
       Save
     </button>

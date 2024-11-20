@@ -1,32 +1,34 @@
-// import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-// import TopNav from "../components/topNav";
-// import RegionModal from "../components/RegionModal";
+import React from "react";
+import "@testing-library/jest-dom";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import TopNav from "../components/topNav";
+import RegionModal from "../components/RegionModal";
 
-// jest.mock("../components/RegionModal", () => {
-//   return jest.fn(() => <div>Region Modal</div>); // Mock RegionModal component
-// });
+jest.mock("../components/RegionModal", () => {
+  return jest.fn(() => <div>Region Modal</div>); // Mock RegionModal component
+});
 
-// describe("TopNav Component", () => {
-//   const mockRegionUpdate = jest.fn();
+describe("TopNav Component", () => {
+  const mockRegionUpdate = jest.fn();
 
-//   beforeEach(() => {
-//     mockRegionUpdate.mockClear();
-//     localStorage.clear();
-//   });
+  beforeEach(() => {
+    mockRegionUpdate.mockClear();
+    localStorage.clear();
+  });
 
-//   it("renders default region and nav links", () => {
-//     render(<TopNav />);
+  it("renders default region and nav links", () => {
+    render(<TopNav />);
 
-//     // Check if the default region "United States" is displayed
-//     expect(screen.getByText(/United States/i)).toBeInTheDocument();
+    // Check if the default region "United States" is displayed
+    expect(screen.getByText(/United States/i)).toBeInTheDocument();
 
-//     // Check if the nav links are rendered
-//     expect(screen.getByText(/Trip Boards/i)).toBeInTheDocument();
-//     expect(screen.getByText(/List your property/i)).toBeInTheDocument();
-//     expect(screen.getByText(/Help/i)).toBeInTheDocument();
-//     expect(screen.getByText(/My trips/i)).toBeInTheDocument();
-//     expect(screen.getByText(/Sign in/i)).toBeInTheDocument();
-//   });
+    // Check if the nav links are rendered
+    expect(screen.getByText(/Trip Boards/i)).toBeInTheDocument();
+    expect(screen.getByText(/List your property/i)).toBeInTheDocument();
+    expect(screen.getByText(/Help/i)).toBeInTheDocument();
+    expect(screen.getByText(/My trips/i)).toBeInTheDocument();
+    expect(screen.getByText(/Sign in/i)).toBeInTheDocument();
+  });
 
 //   it("opens the region modal when the region link is clicked", () => {
 //     render(<TopNav />);
@@ -38,15 +40,15 @@
 //     expect(RegionModal).toHaveBeenCalledTimes(1);
 //   });
 
-//   it("updates region when a new region is selected", () => {
-//     // Simulate a region being saved in localStorage
-//     localStorage.setItem("region", "CA");
+  it("updates region when a new region is selected", () => {
+    // Simulate a region being saved in localStorage
+    localStorage.setItem("region", "CA");
 
-//     render(<TopNav />);
+    render(<TopNav />);
 
-//     // Check if the region has been updated from the default to "Canada"
-//     expect(screen.getByText(/Canada/i)).toBeInTheDocument();
-//   });
+    // Check if the region has been updated from the default to "Canada"
+    expect(screen.getByText(/Canada/i)).toBeInTheDocument();
+  });
 
 //   it("opens and closes the modal correctly", async () => {
 //     render(<TopNav />);
@@ -64,27 +66,27 @@
 //     });
 //   });
 
-//   it("calls onRegionUpdate when a new region is selected from the modal", async () => {
-//     render(<TopNav />);
+  it("calls onRegionUpdate when a new region is selected from the modal", async () => {
+    render(<TopNav />);
 
-//     const regionLink = screen.getByText(/United States/i);
-//     fireEvent.click(regionLink); // Open modal
+    const regionLink = screen.getByText(/United States/i);
+    fireEvent.click(regionLink); // Open modal
 
-//     // Simulate selecting a new region (mocked RegionModal)
-//     mockRegionUpdate("CA");
+    // Simulate selecting a new region (mocked RegionModal)
+    mockRegionUpdate("CA");
     
-//     // Check if the region has been updated
-//     await waitFor(() => {
-//       expect(mockRegionUpdate).toHaveBeenCalledWith("CA");
-//     });
-//   });
+    // Check if the region has been updated
+    await waitFor(() => {
+      expect(mockRegionUpdate).toHaveBeenCalledWith("CA");
+    });
+  });
 
-//   it("loads the region correctly from localStorage", () => {
-//     localStorage.setItem("region", "PT");
+  it("loads the region correctly from localStorage", () => {
+    localStorage.setItem("region", "PT");
 
-//     render(<TopNav />);
+    render(<TopNav />);
 
-//     // Check if the region is correctly updated from localStorage
-//     expect(screen.getByText(/Portugal/i)).toBeInTheDocument();
-//   });
-// });
+    // Check if the region is correctly updated from localStorage
+    expect(screen.getByText(/Portugal/i)).toBeInTheDocument();
+  });
+});

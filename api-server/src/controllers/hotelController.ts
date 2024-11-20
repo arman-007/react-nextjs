@@ -8,7 +8,20 @@ import { readHotelData, writeHotelData } from "../utils/hotelUtils";
 import { Hotel } from "../types/hotelTypes";
 import slugify from "slugify";
 
+
 const uploadsDir = "./uploads/images";
+
+function validateImages(imageFiles: Express.Multer.File[]): { valid: boolean; message?: string } {
+  const allowedMimeTypes = ["image/jpeg", "image/png", "image/webp"];
+
+  for (const file of imageFiles) {
+    if (!allowedMimeTypes.includes(file.mimetype)) {
+      return { valid: false, message: `Invalid file type: ${file.originalname}. Only JPEG, PNG, and WEBP are allowed.` };
+    }
+  }
+
+  return { valid: true };
+}
 
 async function processImages(imageFiles: Express.Multer.File[]): Promise<string[]> {
   const newImagePaths: string[] = [];
@@ -82,6 +95,12 @@ export const hotelController = {
         // Validate minimum number of images
         if (!imageFiles || imageFiles.length < 5) {
           return res.status(400).json({ error: "At least 5 images are required." });
+        }
+
+        // Validate image types
+        const { valid, message } = validateImages(imageFiles);
+        if (!valid) {
+          return res.status(400).json({ error: message });
         }
 
         const imagePaths = await processImages(imageFiles);
@@ -172,6 +191,13 @@ export const hotelController = {
       if (!imageFiles || imageFiles.length === 0) {
         res.status(400).json({ error: "No images uploaded." });
         return;
+      }
+
+      // Validate image types
+      const { valid, message } = validateImages(imageFiles);
+      if (!valid) {
+        res.status(400).json({ error: message });
+        return; 
       }
 
       try {

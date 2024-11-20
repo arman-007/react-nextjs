@@ -2,11 +2,10 @@ import React from 'react';
 
 interface TravelerModalProps {
   isOpen: boolean;
-  onClose: () => void;
 }
 
 
-const TravelerModal: React.FC<TravelerModalProps> = ({ isOpen, onClose }) => {
+const TravelerModal: React.FC<TravelerModalProps> = ({ isOpen }) => {
   if (!isOpen) return null;
   return (
       <div id="travelerModal" className={`traveler-modal ${isOpen ? 'show-class' : 'hide-class'}`}>
@@ -14,11 +13,11 @@ const TravelerModal: React.FC<TravelerModalProps> = ({ isOpen, onClose }) => {
           <div className="option">
             <p>Adults</p>
             <div className="controls">
-              <button className="decrement" id="decrementAdults">
+              <button className="decrement" id="decrementAdults" aria-label='decrementAdults'>
                 <i className="fa-solid fa-minus" />
               </button>
               <span id="adultCount">2</span>
-              <button className="increment" id="incrementAdults">
+              <button className="increment" id="incrementAdults" aria-label='incrementAdults'>
                 <i className="fa-solid fa-plus" />
               </button>
             </div>
@@ -32,7 +31,7 @@ const TravelerModal: React.FC<TravelerModalProps> = ({ isOpen, onClose }) => {
                 <i className="fa-solid fa-minus" />
               </button>
               <span id="childCount">0</span>
-              <button className="increment" id="incrementChildren">
+              <button className="increment" id="incrementChildren" aria-label='incrementChildren'>
                 <i className="fa-solid fa-plus" />
               </button>
             </div>

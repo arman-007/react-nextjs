@@ -1,10 +1,10 @@
-// import React from "react";
-// import { render, screen, fireEvent } from "@testing-library/react";
-// import NavWithGallery from "../components/navWithGallery";
+import React from "react";
+import { render, screen, fireEvent } from "@testing-library/react";
+import NavWithGallery from "../components/navWithGallery";
 
-// const mockImages = ["image1.jpg", "image2.jpg", "image3.jpg"];
+const mockImages = ["image1.jpg", "image2.jpg", "image3.jpg"];
 
-// describe("NavWithGallery Component", () => {
+describe("NavWithGallery Component", () => {
 //   it("renders correctly with images and elements", () => {
 //     render(<NavWithGallery images={mockImages} />);
 
@@ -44,4 +44,4 @@
 //     const galleryImages = screen.getAllByRole("img");
 //     expect(galleryImages).toHaveLength(mockImages.length);
 //   });
-// });
+});

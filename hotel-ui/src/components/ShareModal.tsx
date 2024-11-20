@@ -23,9 +23,9 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose }) => {
   return (
     <div className={`share-modal ${isOpen ? 'show-class' : 'hide-class'}`}>
       <div className="share-modal-content">
-        <span onClick={onClose} className="close regular-x-close">
+        <button onClick={onClose} className="close regular-x-close" aria-label='close'>
           <i className="fa-solid fa-times" />
-        </span>
+        </button>
         <h3>Share</h3>
         <div className="container">
           <div className="row property-info">
@@ -80,7 +80,7 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose }) => {
               </button>
             </div>
             <div className="col-xl-4">
-              <button id="copyLinkBtn" className="social-btn" onClick={() => { handleCopyLink(); onClose(); }}>
+              <button id="copyLinkBtn" className="social-btn" onClick={() => { handleCopyLink();}}>
                 <i className="fa-solid fa-clipboard-list" />
                 <p className="text-4 bold">Copy link</p>
               </button>

@@ -1,63 +1,77 @@
-// import React from "react";
-// import { render, screen, fireEvent } from "@testing-library/react";
-// import ShareModal from "../components/ShareModal";
+import React from "react";
+import "@testing-library/jest-dom";
+import { render, screen, fireEvent } from "@testing-library/react";
+import ShareModal from "../components/ShareModal";
 
-// describe("ShareModal Component", () => {
-//   const mockOnClose = jest.fn();
+const mockOnClose = jest.fn();
 
-//   beforeEach(() => {
-//     mockOnClose.mockClear();
-//     // Clear clipboard mock
-//     Object.assign(navigator, {
-//       clipboard: {
-//         writeText: jest.fn(),
-//       },
-//     });
-//   });
+beforeEach(() => {
+  Object.assign(navigator, {
+    clipboard: {
+      writeText: jest.fn().mockResolvedValue(undefined),
+    },
+  });
+});
 
-//   it("renders nothing when `isOpen` is false", () => {
-//     render(<ShareModal isOpen={false} onClose={mockOnClose} />);
+afterEach(() => {
+  jest.restoreAllMocks();
+});
 
-//     expect(screen.queryByText(/Share/i)).toBeNull();
-//   });
+describe("ShareModal Component", () => {
+  it("renders nothing when `isOpen` is false", () => {
+    render(<ShareModal isOpen={false} onClose={mockOnClose} />);
 
-//   it("renders modal content when `isOpen` is true", () => {
-//     render(<ShareModal isOpen={true} onClose={mockOnClose} />);
+    expect(screen.queryByText(/Share/i)).toBeNull();
+  });
 
-//     expect(screen.getByText(/Share/i)).toBeInTheDocument();
-//     expect(screen.getByText(/Juneau Vacation Home: Stunning View \+ Beach Access/i)).toBeInTheDocument();
-//     expect(screen.getByAltText(/Property Image/i)).toBeInTheDocument();
-//   });
+  it("renders modal content when `isOpen` is true", () => {
+    render(<ShareModal isOpen={true} onClose={mockOnClose} />);
 
-//   it("calls `onClose` when the close button is clicked", () => {
-//     render(<ShareModal isOpen={true} onClose={mockOnClose} />);
+    expect(screen.getByText(/Share/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Juneau Vacation Home: Stunning View \+ Beach Access/i)
+    ).toBeInTheDocument();
+    expect(screen.getByAltText(/Property Image/i)).toBeInTheDocument();
+  });
 
-//     const closeButton = screen.getByRole("button", { name: /close/i });
-//     fireEvent.click(closeButton);
+  it("calls `onClose` when the close button is clicked", () => {
+    render(<ShareModal isOpen={true} onClose={mockOnClose} />);
 
-//     expect(mockOnClose).toHaveBeenCalledTimes(1);
-//   });
+    const closeButton = screen.getByRole("button", { name: /close/i });
+    fireEvent.click(closeButton);
 
-//   it("copies the link to clipboard and calls `onClose` when 'Copy link' button is clicked", async () => {
-//     render(<ShareModal isOpen={true} onClose={mockOnClose} />);
+    expect(mockOnClose).toHaveBeenCalledTimes(1);
+  });
 
-//     const copyLinkButton = screen.getByText(/Copy link/i).closest("button");
-//     fireEvent.click(copyLinkButton);
+  it("copies the link to clipboard and calls `onClose` when 'Copy link' button is clicked", async () => {
+    render(<ShareModal isOpen={true} onClose={mockOnClose} />);
 
-//     expect(navigator.clipboard.writeText).toHaveBeenCalledWith(window.location.href);
-//     expect(mockOnClose).toHaveBeenCalledTimes(1);
-//   });
+    const copyLinkButton = screen.getByText(/Copy link/i).closest("button");
+    fireEvent.click(copyLinkButton);
 
-//   it("renders social media sharing buttons", () => {
-//     render(<ShareModal isOpen={true} onClose={mockOnClose} />);
+    expect(navigator.clipboard.writeText).toHaveBeenCalledWith(
+      window.location.href
+    );
+    expect(mockOnClose).toHaveBeenCalledTimes(1);
+  });
 
-//     const buttons = screen.getAllByRole("button");
-//     const socialPlatforms = ["X", "WhatsApp", "Facebook", "Messenger", "Telegram", "Copy link"];
+  it("renders social media sharing buttons", () => {
+    render(<ShareModal isOpen={true} onClose={mockOnClose} />);
 
-//     socialPlatforms.forEach((platform) => {
-//       expect(screen.getByText(new RegExp(platform, "i"))).toBeInTheDocument();
-//     });
+    const buttons = screen.getAllByRole("button");
+    const socialPlatforms = [
+      "X",
+      "WhatsApp",
+      "Facebook",
+      "Messenger",
+      "Telegram",
+      "Copy link",
+    ];
 
-//     expect(buttons).toHaveLength(6); // Verify total social buttons count
-//   });
-// });
+    socialPlatforms.forEach((platform) => {
+      expect(screen.getByText(new RegExp(platform, "i"))).toBeInTheDocument();
+    });
+
+    expect(buttons).toHaveLength(7); // Verify total social buttons count
+  });
+});

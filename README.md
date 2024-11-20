@@ -26,25 +26,25 @@ This project provides a RESTful API for managing hotel data 🏢. The API includ
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone https://github.com/arman-007/react-nextjs.git
+   cd react-nextjs
    ```
 
-2. Install dependencies:
+2. Install backend dependencies and start server:
 
    ```bash
+   cd api-server
    npm install
+   npm run dev
    ```
 
-### 🛠️ Building the Project
+   3. Install dependencies:
 
-This project uses TypeScript 📘. To compile TypeScript files into JavaScript, use:
-
-```bash
-npm run build
-```
-
-This will create a `dist` directory containing the compiled JavaScript files.
+   ```bash
+   cd hotel-ui
+   npm install
+   npm run dev
+   ```
 
 ### ▶️ Running the Application
 
@@ -108,6 +108,7 @@ The Hotel Management API allows you to manage hotel data 🏢, including adding 
 
 - **Endpoint**: `POST /hotel`
 - **Description**: Adds a new hotel with provided information 📝.
+- **Warning**: have to add minimum 5 images.
 - **Payload** (Form Data):
 
   ```json
@@ -181,35 +182,6 @@ npm test
 ```
 
 This will execute all test cases, including validation for endpoints like `POST /hotel/images` and `DELETE /hotel/:hotelId`.
-
----
-
-## 📁 Project Structure
-
-Here’s a graphical representation of the project structure for better understanding 🧩:
-
-```
-hotel-management-api/
-├── src/
-│   ├── controllers/
-│   │   └── hotelController.ts         # Controller for API logic 🤖
-│   ├── data/
-│   │   └── hotels/                    # JSON files for each hotel record 📂
-│   ├── types/
-│   │   └── hotelTypes.ts              # TypeScript definitions for hotel and room 📝
-│   ├── utils/
-│   │   └── hotelUtils.ts              # Utility functions for file handling ⚙️
-│   ├── __tests__/
-│   │   └── hotelController.test.ts    # Jest tests for the hotel API 🧪
-│   ├── index.ts                       # Express application setup 🌐
-│   └── server.ts                      # Server configuration ⚙️
-├── uploads/
-│   └── images/                        # Directory for uploaded images 🖼️
-├── dist/                              # Compiled JavaScript files 🗄️
-├── package.json                       # Node.js project dependencies 📦
-├── tsconfig.json                      # TypeScript configuration ⚙️
-└── README.md                          # Project documentation 📖
-```
 
 ---
 
